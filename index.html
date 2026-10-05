@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Lego-Like Stiffness Configuration · Compliant Wrist</title>
+  <meta name="description" content="Stackable planar compliant modules configure task-specific stiffness for flexible robotic wrists. Research by Siyue Yao, Xiaochi Xie, and colleagues at Stanford and Shanghai Jiao Tong University.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='%23997324' stroke-width='5'/%3E%3Cpath d='M7 32Q22 4 32 32T57 32M7 32Q22 60 32 32T57 32' fill='none' stroke='%23997324' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://samxie34.github.io/wrist/">
+  <meta property="og:url" content="https://samxie34.github.io/wrist/">
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to content</a>
+  <header class="hero">
+    <div class="hero-stage">
+      <div class="hero-media">
+        <video id="hero-loop" class="loop" muted loop playsinline preload="metadata" poster="assets/wrist-compliance.jpg" aria-label="Full-screen close-up of the compliant wrist bending under manual loading." aria-describedby="hero-caption">
+          <source src="assets/wrist-compliance.mp4" type="video/mp4">
+        </video>
+      </div>
+      <nav class="hero-nav" aria-label="Project navigation">
+        <a href="#overview">Compliant Wrist</a>
+        <a href="assets/compliant-wrist-paper.pdf" target="_blank" rel="noopener">Read the paper ↗</a>
+      </nav>
+      <div class="hero-heading">
+        <p class="eyebrow">Modular compliant robotics</p>
+        <h1><span class="hero-title-main">Lego-Like<br>Stiffness Configuration</span><span class="hero-title-detail">of Planar Compliant Modules<br>for Task-Specific Flexible Interfaces</span></h1>
+      </div>
+      <a class="hero-explore" href="#overview">Explore the design <span aria-hidden="true">↓</span></a>
+      <div class="hero-foot">
+        <p id="hero-caption">Manual deflection · Gripper inset: 3× <a href="assets/wrist-compliance.mp4">Watch full-frame clip ↗</a></p>
+        <button class="motion" type="button" data-video="hero-loop">Play clip</button>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <p class="authors">Siyue Yao<sup>1,2</sup>, <a href="https://www.linkedin.com/in/xiaochi-xie-a94930396/">Xiaochi Xie<sup>2</sup></a>, Shixuan Zhao<sup>2</sup>, Yutong Li<sup>1</sup>,<br class="desktop-break"> Hao Li<sup>2</sup>, Mark R. Cutkosky<sup>2</sup>, Genliang Chen<sup>3,4,*</sup></p>
+      <p class="affiliations"><sup>1,3,4</sup> Shanghai Jiao Tong University &nbsp;·&nbsp; <sup>2</sup> Stanford University</p>
+      <p class="venue">Submitted to ICRA 2027 · Under review</p>
+      <div class="actions">
+        <a class="button" href="assets/compliant-wrist-paper.pdf" target="_blank" rel="noopener">Paper PDF <span aria-hidden="true">↗</span></a>
+        <a class="button" href="#experiments">Experiments <span aria-hidden="true">↓</span></a>
+        <a class="button" href="#video">Full video <span aria-hidden="true">▷</span></a>
+      </div>
+    </div>
+  </header>
+  <nav class="section-nav" aria-label="On this page">
+    <a href="#overview">Overview</a><a href="#modules">Module design</a><a href="#experiments">Contact experiments</a><a href="#validation">Validation</a><a href="#paper">Paper</a><a href="#video">Full video</a>
+  </nav>
+  <main>
+    <section class="section intro" id="overview">
+      <div class="reading">
+        <p class="eyebrow">The idea</p>
+        <h2>Build the stiffness<br><em>a task needs.</em></h2>
+        <p class="lead">A flexible wrist should bend in the directions that help a task, while staying stiff where support is needed. We configure that behavior by stacking a small set of planar compliant modules.</p>
+        <p>Module geometry, beam width, plate thickness, and orientation determine the stiffness of the assembly. A unified model and two-stage optimization choose a composition for a desired stiffness profile. The same building blocks produce distinct contact responses without redesigning the complete mechanism.</p>
+      </div>
+    </section>
+    <section class="section" id="modules">
+      <div class="reading"><p class="eyebrow">01 / From planar parts to a flexible interface</p><h2>Three geometries.<br>Many stiffness profiles.</h2><p>Curved, spiral, and wavy beams give the three module types complementary stiffness characteristics. Adjusting their dimensions changes the balance between translation and rotation; changing their orientation swaps directional stiffness.</p></div>
+      <div class="wide module-explorer">
+        <p class="module-instruction" id="module-instruction">Click a module to flip it. Open all three to compare.<span class="module-mobile-hint"> Swipe to see the other modules.</span></p>
+        <div class="module-picker" role="group" aria-label="Flip modules to compare their stiffness profiles" aria-describedby="module-instruction module-chart-note">
+          <button type="button" class="module-card" data-module="i" aria-pressed="false" aria-label="Type I: show six-axis stiffness profile">
+            <img class="module-model" src="assets/module-type-i.webp" alt="" width="714" height="688" loading="lazy" aria-hidden="true">
+            <span class="module-name" aria-hidden="true">Type I</span><span class="module-shape" aria-hidden="true">Curved beams</span>
+            <img class="module-radar" src="assets/module-stiffness-i.svg" alt="" width="730" height="615" loading="lazy" aria-hidden="true">
+            <span class="module-flip-hint" aria-hidden="true">View stiffness <span>↗</span></span>
+          </button>
+          <button type="button" class="module-card" data-module="ii" aria-pressed="false" aria-label="Type II: show six-axis stiffness profile">
+            <img class="module-model" src="assets/module-type-ii.webp" alt="" width="716" height="688" loading="lazy" aria-hidden="true">
+            <span class="module-name" aria-hidden="true">Type II</span><span class="module-shape" aria-hidden="true">Spiral beams</span>
+            <img class="module-radar" src="assets/module-stiffness-ii.svg" alt="" width="730" height="615" loading="lazy" aria-hidden="true">
+            <span class="module-flip-hint" aria-hidden="true">View stiffness <span>↗</span></span>
+          </button>
+          <button type="button" class="module-card" data-module="iii" aria-pressed="false" aria-label="Type III: show six-axis stiffness profile">
+            <img class="module-model" src="assets/module-type-iii.webp" alt="" width="719" height="688" loading="lazy" aria-hidden="true">
+            <span class="module-name" aria-hidden="true">Type III</span><span class="module-shape" aria-hidden="true">Wavy beams</span>
+            <img class="module-radar" src="assets/module-stiffness-iii.svg" alt="" width="730" height="615" loading="lazy" aria-hidden="true">
+            <span class="module-flip-hint" aria-hidden="true">View stiffness <span>↗</span></span>
+          </button>
+        </div>
+        <p class="module-chart-note" id="module-chart-note">Illustrative profiles redrawn from Figure 2B on a shared scale. Rotational terms: k*<sub>ri</sub> = 5k<sub>ri</sub>/R². <a href="assets/module-stiffness-comparison.webp" target="_blank" rel="noopener">Original figure ↗</a></p>
+        <p id="module-selection-status" class="sr-only" role="status"></p>
+        <noscript><p class="module-instruction"><a href="assets/module-stiffness-comparison.webp">View the six-axis stiffness comparison for all three modules.</a></p></noscript>
+      </div>
+      <div class="reading"><h3>From a target to an assembly</h3><p>A genetic algorithm selects module configurations, then sequential quadratic programming refines the continuous dimensions. The optimization can target specific stiffness values or relative preferences between components.</p></div>
+      <div class="process wide" aria-label="Inverse design process">
+        <div><span>01</span><h4>Specify</h4><p>Target stiffness and geometric constraints</p></div><span class="arrow" aria-hidden="true">→</span>
+        <div><span>02</span><h4>Compose</h4><p>Module types, orientations, and dimensions</p></div><span class="arrow" aria-hidden="true">→</span>
+        <div><span>03</span><h4>Stack</h4><p>A flexible interface with the chosen stiffness</p></div>
+      </div>
+      <details class="evidence reading"><summary>See the inverse design results</summary><figure><a class="zoom" href="assets/optimization.webp"><img src="assets/optimization.webp" width="2000" height="1879" loading="lazy" alt="Optimization flowchart and radar plots comparing optimized stiffness with different task requirements."></a><figcaption>The paper evaluates prescribed stiffness values and qualitative stiffness preferences.</figcaption></figure></details>
+    </section>
+    <section class="section soft" id="experiments">
+      <div class="reading"><p class="eyebrow">02 / Watch the contact response</p><h2>Changing stiffness changes<br>what happens on contact.</h2><p>A wrist with low rotational stiffness can reorient around an obstacle, but exhibits noticeable oscillation. A wrist with higher rotational stiffness resists reorientation and eventually tips the obstacle. The optimized composition balances compliance with the desired dynamic response.</p></div>
+      <div class="wide comparison">
+        <div class="tabs" role="tablist" aria-label="Compare wrist stiffness">
+          <button id="tab-low" role="tab" aria-selected="true" aria-controls="panel-low" tabindex="0">Low rotational stiffness</button>
+          <button id="tab-high" role="tab" aria-selected="false" aria-controls="panel-high" tabindex="-1">High rotational stiffness</button>
+        </div>
+        <div id="panel-low" role="tabpanel" aria-labelledby="tab-low">
+          <figure class="demo"><video id="low-loop" class="loop" muted loop playsinline preload="none" poster="assets/low-stiffness.jpg" aria-label="Comparison of the optimized composite wrist and a single low rotational stiffness module during obstacle interaction."><source src="assets/low-stiffness.mp4" type="video/mp4"></video><figcaption class="figure-foot"><span>Left: optimized composite wrist, real time. Right: a single module with low rotational stiffness at 2 mm/s, shown first at 10× and then in real time to reveal oscillation.</span><button type="button" class="motion" data-video="low-loop">Play clip</button></figcaption></figure>
+        </div>
+        <div id="panel-high" role="tabpanel" aria-labelledby="tab-high" hidden>
+          <figure class="demo"><video id="high-loop" class="loop" muted loop playsinline preload="none" poster="assets/high-stiffness.jpg" aria-label="Comparison of the optimized composite wrist and a single high rotational stiffness module that tips the contacted obstacle."><source src="assets/high-stiffness.mp4" type="video/mp4"></video><figcaption class="figure-foot"><span>Left: optimized composite wrist, real time. Right: a single module with high rotational stiffness at 2 mm/s, shown at 5×. Restricted rotation eventually tips the obstacle.</span><button type="button" class="motion" data-video="high-loop">Play clip</button></figcaption></figure>
+        </div>
+      </div>
+      <div class="reading"><h3>Compliant interaction at 1 m/s</h3><p>The optimized wrist targets a rotational stiffness of <strong>5 N·m/rad</strong> and a translational stiffness of <strong>6,000 N/m</strong>. It combines a Type-I module with two mirrored Type-II modules.</p><p>In the high-speed experiment, the robot moves back and forth at <strong>1 m/s</strong> with a maximum imposed vertical offset of <strong>10 mm</strong>. The wrist accommodates the obstacle on each contact. Approximately <strong>15° of angular compliance</strong> is demonstrated in the tested condition.</p></div>
+      <figure class="wide demo"><video id="speed-loop" class="loop" muted loop playsinline preload="none" poster="assets/high-speed.jpg" aria-label="The optimized wrist passes an obstacle during high-speed motion, with close-up views of the wrist bending through approximately 15 degrees."><source src="assets/high-speed.mp4" type="video/mp4"></video><figcaption class="figure-foot"><span>Optimized modular wrist during high-speed interaction, with close-ups of the compliant stack. Main view: real time.</span><button type="button" class="motion" data-video="speed-loop">Play clip</button></figcaption></figure>
+      <details class="evidence reading"><summary>See the optimized wrist assembly</summary><figure><a class="zoom" href="assets/wristmodular.webp"><img src="assets/wristmodular.webp" width="2000" height="1465" loading="lazy" alt="Optimized stiffness radar plot, modular composition, and wrist interacting with an obstacle."></a><figcaption>Target and optimized stiffness, the modular composition, and the corresponding wrist experiment.</figcaption></figure></details>
+    </section>
+    <section class="section" id="validation">
+      <div class="reading"><p class="eyebrow">03 / Check the model</p><h2>Measured across<br>six stiffness components.</h2><p>A fabricated Type-I module is loaded separately in six configurations. Each test repeats 20 times. Near the unloaded configuration, the measured force–displacement curves are fitted to identify the module stiffness.</p></div>
+      <figure class="wide demo"><video id="test-loop" class="loop" muted loop playsinline preload="none" poster="assets/stiffness-test.jpg" aria-label="Three synchronized views of a planar module being loaded in different directions to characterize stiffness."><source src="assets/stiffness-test.mp4" type="video/mp4"></video><figcaption class="figure-foot"><span>Stiffness characterization under different loading directions. Playback: 20×.</span><button type="button" class="motion" data-video="test-loop">Play clip</button></figcaption></figure>
+      <div class="reading"><p>After calibrating the material's elastic modulus, the model's deviation from the measured stiffness is <strong>below 6.5% for all six components</strong>, with an average deviation below 5%. Linear fits near the unloaded configuration achieve R² ≥ 0.99.</p></div>
+      <figure class="reading figure-paper"><a class="zoom" href="assets/expres.webp"><img src="assets/expres.webp" width="2000" height="1529" loading="lazy" decoding="async" alt="Force-displacement measurements, simulated and experimental stiffness values, and relative errors below 6.5 percent across six stiffness components."></a><figcaption>Experimental characterization and comparison with the stiffness model. The model uses calibrated material properties.</figcaption></figure>
+      <details class="evidence reading"><summary>Scope of the current model</summary><p>The framework models stiffness near the unloaded configuration and targets a diagonal stiffness matrix. The underlying planar structures still couple some stiffness components, so arbitrary profiles are not always attainable. Stack thickness, module offsets, and geometric interference can also affect the assembled behavior.</p></details>
+    </section>
+    <section class="section soft" id="paper">
+      <div class="reading"><p class="eyebrow">Paper &amp; authors</p><h2>A modular approach<br>to task-specific compliance.</h2><p class="paper-title">Lego-Like Stiffness Configuration of Planar Compliant Modules for Task-Specific Flexible Interfaces</p><p>Siyue Yao, Xiaochi Xie, Shixuan Zhao, Yutong Li, Hao Li, Mark R. Cutkosky, and Genliang Chen.</p><p class="venue">Submitted to ICRA 2027 · Under review</p><a class="text-link" href="assets/compliant-wrist-paper.pdf" target="_blank" rel="noopener">Read the manuscript PDF ↗</a>
+      <details class="evidence"><summary>Full affiliations</summary><ol class="affiliation-list"><li>State Key Laboratory of Mechanical Systems and Vibration, Shanghai Jiao Tong University, Shanghai, China</li><li>Department of Mechanical Engineering, Stanford University, USA</li><li>Shanghai Key Laboratory of Intelligent Robotics, Shanghai Jiao Tong University, Shanghai, China</li><li>META Robotics Institute, Shanghai Jiao Tong University, Shanghai, China</li></ol><p class="small">* Corresponding author: Genliang Chen</p></details>
+      </div>
+    </section>
+    <section class="section" id="video">
+      <div class="reading"><p class="eyebrow">The complete experiment video</p><h2>See the full sequence.</h2><p>Stiffness verification, manual compliance, and side-by-side contact experiments in the original 49-second video.</p></div>
+      <div class="wide"><video id="full-video" controls playsinline preload="none" poster="assets/high-speed.jpg" aria-label="Complete supplementary video"><source src="assets/wrist-full-video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/wrist-full-video.mp4">Download the full video</a>.</video>
+        <div class="chapters" aria-label="Video chapters"><button data-time="3.5"><span>0:03</span> Stiffness tests</button><button data-time="11.2"><span>0:11</span> Wrist compliance</button><button data-time="23"><span>0:23</span> Low stiffness</button><button data-time="34.7"><span>0:34</span> High stiffness</button><button data-time="43"><span>0:43</span> High-speed interaction</button></div>
+      </div>
+    </section>
+  </main>
+  <footer><a href="#overview">Compliant Wrist</a><p>Figures and video from the submitted manuscript · October 2026</p><a href="#paper">Paper &amp; authors ↑</a></footer>
+  <dialog id="lightbox" aria-label="Enlarged research figure"><button class="close-lightbox" type="button" aria-label="Close enlarged figure">×</button><img alt=""></dialog>
+  <script src="script.js"></script>
+</body>
+</html>

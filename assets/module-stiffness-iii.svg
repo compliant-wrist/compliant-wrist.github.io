@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 615" role="img" aria-labelledby="title description">
+<title id="title">Type III — six-axis stiffness profile</title>
+<desc id="description">Type III illustrative six-axis stiffness profile traced from the raster image of manuscript Figure 2B. The common coordinate frame and relative geometry are retained. These are digitized figure coordinates, not raw stiffness measurements. Rotational scaling: k*ri = 5 kri / R².</desc>
+<metadata>{&quot;source&quot;: &quot;Manuscript Figure 2B, Modeling.jpg&quot;, &quot;method&quot;: &quot;Color-separated contour centerlines fitted to the original raster; illustrative tracing only.&quot;, &quot;pixel_coordinates&quot;: [[432.34, 318.71], [391.55, 370.49], [245.06, 519.96], [275.26, 318.53], [300.97, 214.17], [372.53, 296.95]], &quot;coordinate_units&quot;: &quot;source-image pixels, not stiffness units&quot;, &quot;uncertainty_pixels&quot;: &quot;typically \u00b12\u20133; blue right tip approximately \u00b16&quot;, &quot;shared_frame&quot;: [[618, 318], [489, 540], [233, 540], [104, 318], [233, 96], [489, 96]]}</metadata>
+<polygon points="618.00,318.00 489.00,540.00 233.00,540.00 104.00,318.00 233.00,96.00 489.00,96.00" fill="#fafbf9" stroke="#677068" stroke-width="2.6"/>
+<g fill="none" stroke="#d0d6ce" stroke-width="2"><path d="M361 318L618 318"/>
+<path d="M361 318L489 540"/>
+<path d="M361 318L233 540"/>
+<path d="M361 318L104 318"/>
+<path d="M361 318L233 96"/>
+<path d="M361 318L489 96"/></g>
+<polygon class="stiffness-profile" data-type="iii" points="432.34,318.71 391.55,370.49 245.06,519.96 275.26,318.53 300.97,214.17 372.53,296.95" fill="#bf7a65" fill-opacity="0.20" stroke="#bf7a65" stroke-width="5" stroke-linejoin="round"/>
+<g font-family="Georgia,Times New Roman,serif" font-size="46" font-style="italic" fill="#303830">
+<text x="647" y="330">k<tspan font-size="27" baseline-shift="super">*</tspan><tspan font-size="30" baseline-shift="sub">rx</tspan></text>
+<text x="498" y="590" text-anchor="middle">k<tspan font-size="30" baseline-shift="sub">dz</tspan></text>
+<text x="224" y="590" text-anchor="middle">k<tspan font-size="30" baseline-shift="sub">dy</tspan></text>
+<text x="73" y="330" text-anchor="end">k<tspan font-size="30" baseline-shift="sub">dx</tspan></text>
+<text x="225" y="57" text-anchor="middle">k<tspan font-size="27" baseline-shift="super">*</tspan><tspan font-size="30" baseline-shift="sub">rz</tspan></text>
+<text x="497" y="57" text-anchor="middle">k<tspan font-size="27" baseline-shift="super">*</tspan><tspan font-size="30" baseline-shift="sub">ry</tspan></text>
+</g>
+</svg>
