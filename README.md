@@ -1,6 +1,6 @@
 # Lego-Like Stiffness Configuration of Planar Compliant Modules for Task-Specific Flexible Interfaces
 
-Project website: https://samxie34.github.io/wrist/
+Project website: https://compliant-wrist.github.io/
 
 Static HTML, CSS, JavaScript, and project media. Published with GitHub Pages from the `main` branch root; no build command is required.
 
