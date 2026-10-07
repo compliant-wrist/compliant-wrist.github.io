@@ -94,6 +94,23 @@
     fullVideo.scrollIntoView({ block: 'center', behavior: reducedMotion.matches ? 'instant' : 'smooth' });
   }));
 
+  const copyBibtex = document.getElementById('copy-bibtex');
+  const bibtex = document.getElementById('bibtex-citation');
+  const citationStatus = document.getElementById('citation-status');
+  copyBibtex.hidden = false;
+  copyBibtex.addEventListener('click', async () => {
+    copyBibtex.disabled = true;
+    citationStatus.textContent = '';
+    try {
+      await navigator.clipboard.writeText(`${bibtex.textContent.trim()}\n`);
+      citationStatus.textContent = 'BibTeX copied to clipboard.';
+    } catch {
+      citationStatus.textContent = 'Could not copy. Select the BibTeX below and copy it manually, or download the .bib file.';
+    } finally {
+      copyBibtex.disabled = false;
+    }
+  });
+
   const lightbox = document.getElementById('lightbox');
   document.querySelectorAll('.zoom').forEach(link => link.addEventListener('click', event => {
     if (!lightbox.showModal) return;
